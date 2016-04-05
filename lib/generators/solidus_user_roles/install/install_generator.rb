@@ -26,6 +26,13 @@ module SolidusUserRoles
           puts 'Skipping rake db:migrate, don\'t forget to run it!'
         end
       end
+
+      def include_seed_data
+        append_file "db/seeds.rb", <<-SEEDS
+        \n
+        SolidusUserRoles::Engine.load_seed if defined?(SolidusUserRoles::Engine)
+        SEEDS
+      end
     end
   end
 end

@@ -1,0 +1,49 @@
+<style>
+  .admin_roles ul {
+    list-style: none;
+  }
+  .admin_roles li {
+    margin: 5px 0;
+  }
+  .admin_roles strong {
+    margin-left: 5px;
+  }
+</style>
+<div data-hook="admin_role_form_fields">
+  <div class="alpha twelve columns">
+    <fieldset data-hook="roles" class="admin_roles no-border-bottom">
+
+      <div class="alpha twelve columns">
+        <div data-hook="name" class="field">
+          <%= f.label :name, Spree.t(:name) %>
+          <%= f.text_field :name, :class => 'fullwidth' %>
+        </div>
+      </div>
+      <div class="alpha six columns">
+        <%= label_tag nil, 'Display Permissions' %>
+        <ul>
+          <% Spree::PermissionSet.display_permissions.each do |permission| %>
+            <li>
+              <%= check_box_tag 'role[permission_set_ids][]', permission.id, f.object.try(:permission_sets).include?(permission) %>
+              <strong><%= permission.name %></strong>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="omega six columns">
+        <%= label_tag nil, 'Management Permissions' %>
+        <ul>
+          <% Spree::PermissionSet.management_permissions.each do |permission| %>
+            <li>
+              <%= check_box_tag 'role[permission_set_ids][]', permission.id, f.object.try(:permission_sets).include?(permission) %>
+              <strong><%= permission.name %></strong>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </fieldset>
+  </div>
+
+  <div class="clear"></div>
+
+</div>
