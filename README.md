@@ -1,7 +1,7 @@
 SolidusUserRoles
 =====================
 
-Introduction goes here.
+SolidusUserRoles gives an admin the ability to create roles for their employees to restrict or allow access to certain sections in the admin panel.
 
 Installation
 ------------
@@ -17,6 +17,11 @@ Bundle your dependencies and run the installation generator:
 ```shell
 bundle
 bundle exec rails g solidus_user_roles:install
+```
+
+Remember to seed or run:
+```shell
+rake solidus_user_roles:load_seeds
 ```
 
 Testing
