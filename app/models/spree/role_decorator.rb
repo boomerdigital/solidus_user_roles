@@ -4,8 +4,15 @@ Spree::Role.class_eval do
 
   scope :non_base_roles, -> { where.not(name: ['admin', 'user']) }
   validates :name, uniqueness: true
+  after_save :assign_permissions
 
   def permission_sets_constantized
     permission_sets.map(&:set).map(&:constantize)
+  end
+
+  def assign_permissions
+    Spree::RoleConfiguration.configure do |config|
+      config.assign_permissions name, permission_sets_constantized
+    end
   end
 end
