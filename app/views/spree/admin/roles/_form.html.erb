@@ -10,16 +10,16 @@
   }
 </style>
 <div data-hook="admin_role_form_fields">
-  <div class="alpha twelve columns">
+  <div class="alpha sixteen columns">
     <fieldset data-hook="roles" class="admin_roles no-border-bottom">
 
-      <div class="alpha twelve columns">
+      <div class="alpha sixteen columns">
         <div data-hook="name" class="field">
           <%= f.label :name, Spree.t(:name) %>
           <%= f.text_field :name, :class => 'fullwidth' %>
         </div>
       </div>
-      <div class="alpha six columns">
+      <div class="alpha eight columns">
         <%= label_tag nil, 'Display Permissions' %>
         <ul>
           <% Spree::PermissionSet.display_permissions.each do |permission| %>
@@ -30,7 +30,7 @@
           <% end %>
         </ul>
       </div>
-      <div class="omega six columns">
+      <div class="omega eight columns">
         <%= label_tag nil, 'Management Permissions' %>
         <ul>
           <% Spree::PermissionSet.management_permissions.each do |permission| %>
