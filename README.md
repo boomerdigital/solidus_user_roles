@@ -1,7 +1,7 @@
 SolidusUserRoles
 =====================
 
-SolidusUserRoles gives an admin the ability to create roles for their employees to restrict or allow access to certain sections in the admin panel.
+SolidusUserRoles gives an admin the ability to create custom roles for their employees to restrict or allow access to certain sections in the admin panel.
 
 Installation
 ------------
@@ -23,6 +23,14 @@ Remember to seed or run:
 ```shell
 rake solidus_user_roles:load_seeds
 ```
+
+Admin Panel
+-----------
+An admin is the only user who has the ability to add or remove roles from other users.
+![image](https://cloud.githubusercontent.com/assets/6445334/14432566/b90ae0b4-ffd8-11e5-832c-8692dbb437bb.png)
+![image](https://cloud.githubusercontent.com/assets/6445334/14432655/0c5c7a84-ffd9-11e5-8463-366fa88b774f.png)
+![image](https://cloud.githubusercontent.com/assets/6445334/14432674/22dadc60-ffd9-11e5-97c2-3e9719427140.png)
+
 
 Testing
 -------
