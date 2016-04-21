@@ -9,8 +9,10 @@ module SolidusUserRoles
 
     def self.load_custom_permissions
       Spree::RoleConfiguration.configure do |config|
-        Spree::Role.non_base_roles.each do |role|
-          config.assign_permissions role.name, role.permission_sets_constantized
+        if ActiveRecord::Base.connection.tables.include?('spree_roles')
+          Spree::Role.non_base_roles.each do |role|
+            config.assign_permissions role.name, role.permission_sets_constantized
+          end
         end
       end
     end
