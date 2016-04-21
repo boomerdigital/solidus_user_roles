@@ -2,5 +2,7 @@
   <% if can? :admin, Spree::User %>
     <%= tab :users %>
   <% end %>
-  <%= tab :roles %>
+  <% if can? :admin, Spree::Role %>
+    <%= tab :roles %>
+  <% end %>
 </ul>
