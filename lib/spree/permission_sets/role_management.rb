@@ -1,6 +1,7 @@
+# A Role Manager has all the access of a UserManager and the ability to manage Roles
 module Spree
   module PermissionSets
-    class UserManagement < PermissionSets::Base
+    class RoleManagement < PermissionSets::Base
       def activate!
         can [:admin, :display, :create, :update, :save_in_address_book, :remove_from_address_book, :addresses, :orders, :items], Spree.user_class
 
