@@ -3,3 +3,12 @@
 
 en:
   hello: "Hello world"
+  spree:
+    new_user_role: New User Role
+    back_to_roles_list: Back to Roles List
+    permissions: Permissions
+    user_roles: User Roles
+    editing_user_role: Editing User Role
+    admin:
+      tab:
+        roles: Roles
