@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem "solidus", github: "solidusio/solidus", branch: 'v1.2'
+gem "solidus", github: "solidusio/solidus"
 
 group :development, :test do
   gem "pry"

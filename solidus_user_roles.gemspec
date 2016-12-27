@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.version     = '1.2.1'
   s.summary     = 'Advanced user roles for Solidus.'
   s.description = 'Advanced user roles for Solidus.'
-  s.required_ruby_version = '>= 2.0.0'
+  s.required_ruby_version = '>= 2.1.0'
 
   s.author    = 'Allison Reilly'
   s.email     = 'allie.reilly@boomer.digital'
@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_dependency "solidus_core", '~> 1.2'
+  s.add_dependency "solidus_core", [">= 1.0.0", "< 3"]
 
   # s.add_development_dependency "solidus_backend", '~> 1.2'
   # s.add_development_dependency "solidus_frontend", '~> 1.2'
