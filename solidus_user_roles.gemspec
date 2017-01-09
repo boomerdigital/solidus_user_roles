@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'shoulda-matchers', '~> 2.7'
   s.add_development_dependency 'sass-rails', '~> 5.0.0.beta1'
   s.add_development_dependency 'selenium-webdriver'
+  s.add_development_dependency 'rails-controller-testing'
   s.add_development_dependency 'simplecov'
   s.add_development_dependency 'sqlite3'
 end
