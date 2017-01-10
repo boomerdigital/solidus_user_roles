@@ -1,3 +1,2 @@
-require 'spree_core'
-require 'spree/permission_sets/role_management'
+require 'spree/core'
 require 'solidus_user_roles/engine'
