@@ -18,7 +18,7 @@ describe Spree::Admin::RolesController do
   end
 
   describe "#edit" do
-    subject { get :edit, { id: role.id } }
+    subject { get :edit, params: { id: role.id } }
 
     it { is_expected.to be_success }
   end
@@ -33,7 +33,7 @@ describe Spree::Admin::RolesController do
       }
     end
 
-    subject { post :create, params }
+    subject { post :create, params: params }
     it { is_expected.to redirect_to(spree.admin_roles_path) }
 
     it "expect @role to eq the role being updated" do
@@ -59,7 +59,7 @@ describe Spree::Admin::RolesController do
       }
     end
 
-    subject { put :update, params }
+    subject { put :update, params: params }
     it { is_expected.to redirect_to(spree.admin_roles_path) }
 
     it "expect @role to eq the role being updated" do
@@ -72,7 +72,7 @@ describe Spree::Admin::RolesController do
   end
 
   describe "#destroy" do
-    subject { put :destroy, { :id => role.to_param } }
+    subject { put :destroy, params: { :id => role.to_param } }
     it { is_expected.to have_http_status(302) }
   end
 end
