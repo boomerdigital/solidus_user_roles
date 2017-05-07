@@ -17,6 +17,11 @@ module SolidusUserRoles
       end
     end
 
+    initializer "solidus_user_roles.roles_tab", before: :load_config_initializers do |app|
+      user_tabs = Spree::Backend::Config.menu_items.find { |menu| menu.sections == Spree::BackendConfiguration::USER_TABS }
+      user_tabs.instance_variable_set(:@partial, 'spree/admin/shared/user_sub_menu')
+      Spree::BackendConfiguration::USER_TABS << :roles
+    end
 
     def self.activate
       Dir.glob(File.join(File.dirname(__FILE__), '../../app/**/*_decorator*.rb')) do |c|
