@@ -5,7 +5,7 @@ Deface::Override.new(
 ) do
   <<-HTML
     <% if can? :admin, Spree::Role %>
-      <%= tab :roles %>
+      <%= tab(:roles, icon: 'users') %>
     <% end %>
   HTML
 end
