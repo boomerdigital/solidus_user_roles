@@ -11,8 +11,6 @@ Spree::Role.class_eval do
   end
 
   def assign_permissions
-    Spree::RoleConfiguration.configure do |config|
-      config.assign_permissions name, permission_sets_constantized
-    end
+    Spree::Config.roles.assign_permissions name, permission_sets_constantized
   end
 end
