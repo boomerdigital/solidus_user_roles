@@ -9,6 +9,8 @@ en:
     permissions: Permissions
     user_roles: User Roles
     editing_user_role: Editing User Role
+    display_permissions: Display Permissions
+    management_permissions: Management Permissions
     admin:
       tab:
         roles: Roles
