@@ -20,7 +20,7 @@
         </div>
       </div>
       <div class="alpha eight columns">
-        <%= label_tag nil, 'Display Permissions' %>
+        <%= label_tag nil, Spree.t(:display_permissions) %>
         <ul>
           <% Spree::PermissionSet.display_permissions.each do |permission| %>
             <li>
@@ -31,7 +31,7 @@
         </ul>
       </div>
       <div class="omega eight columns">
-        <%= label_tag nil, 'Management Permissions' %>
+        <%= label_tag nil, Spree.t(:management_permissions) %>
         <ul>
           <% Spree::PermissionSet.management_permissions.each do |permission| %>
             <li>

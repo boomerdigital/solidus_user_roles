@@ -44,7 +44,7 @@ describe Spree::Admin::RolesController do
       expect{subject}.to change { Spree::Role.count }.by(1)
     end
     it "should update the RoleConfiguration" do
-      expect{subject}.to change {Spree::RoleConfiguration.instance.roles.count}.by(1)
+      expect{subject}.to change {Spree::Config.roles.roles.count}.by(1)
     end
   end
 
