@@ -44,7 +44,11 @@ describe Spree::Admin::RolesController do
       expect{subject}.to change { Spree::Role.count }.by(1)
     end
     it "should update the RoleConfiguration" do
-      expect{subject}.to change {Spree::Config.roles.roles.count}.by(1)
+      if SolidusSupport.solidus_gem_version < Gem::Version.new('2.5.x')
+        expect{subject}.to change {Spree::RoleConfiguration.instance.roles.count}.by(1)
+      else
+        expect{subject}.to change {Spree::Config.roles.roles.count}.by(1)
+      end
     end
   end
 
