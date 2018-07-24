@@ -21,7 +21,12 @@ describe Spree::Role, type: :model do
     it 'updates the existing Spree::RoleConfiguration::Role' do
       role.save
       role.permission_sets << create(:permission_set, name: 'test', set: 'Spree::PermissionSets::ProductDisplay')
-      expect { role.save }.to change { Spree::Config.roles.roles[role.name].permission_sets.count }.from(1).to(2)
+
+      if SolidusSupport.solidus_gem_version < Gem::Version.new('2.5.x')
+        expect { role.save }.to change { Spree::RoleConfiguration.instance.roles[role.name].permission_sets.count }.from(1).to(2)
+      else
+        expect { role.save }.to change { Spree::Config.roles.roles[role.name].permission_sets.count }.from(1).to(2)
+      end
     end
   end
 
