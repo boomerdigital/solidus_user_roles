@@ -14,6 +14,12 @@ gem 'mysql2', '~> 0.4.10'
 
 group :development, :test do
   gem "pry"
+
+  if branch < "v2.5"
+    gem 'factory_bot', '4.10.0'
+  else
+    gem 'factory_bot', '> 4.10.0'
+  end
 end
 
 gemspec
