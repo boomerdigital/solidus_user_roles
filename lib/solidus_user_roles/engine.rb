@@ -19,6 +19,8 @@ module SolidusUserRoles
           end
         end
       end
+    rescue ActiveRecord::NoDatabaseError
+      warn "No database available, skipping role configuration"
     end
 
 
