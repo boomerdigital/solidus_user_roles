@@ -8,19 +8,19 @@ describe Spree::Admin::RolesController do
   describe "#index" do
     subject { get :index }
 
-    it { is_expected.to be_success }
+    it { is_expected.to be_successful }
   end
 
   describe "#new" do
     subject { get :new }
 
-    it { is_expected.to be_success }
+    it { is_expected.to be_successful }
   end
 
   describe "#edit" do
     subject { get :edit, params: { id: role.id } }
 
-    it { is_expected.to be_success }
+    it { is_expected.to be_successful }
   end
 
   describe "#create" do
