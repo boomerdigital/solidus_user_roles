@@ -10,6 +10,25 @@ describe Spree::Role, type: :model do
     role
   }
 
+  context "#permission_sets_constantized" do
+    context "when a permission set does not exist" do
+      let(:role) {
+        role = create(:role)
+        role.permission_sets = [permission_set, ghost_permission_set]
+        role
+      }
+      let(:permission_set) { create(:permission_set) }
+      let(:ghost_permission_set) {
+        create(:permission_set, name: 'WidgetDisplay', set: 'Spree::PermissionSets::WidgetDisplay')
+      }
+
+      it 'returns the remaining permission set classes' do
+        expect(role.permission_sets_constantized.count).to eq(1)
+      end
+    end
+
+  end
+
   context "#assign_permissions" do
     it 'creates new Spree::RoleConfiguration::Role' do
       if SolidusSupport.solidus_gem_version < Gem::Version.new('2.5.x')
