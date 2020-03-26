@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'solidus_support'
 
   s.add_development_dependency 'database_cleaner'
-  s.add_development_dependency 'rspec-rails',  '~> 3.1'
+  s.add_development_dependency 'rspec-rails',  '~> 4.0'
   s.add_development_dependency 'rspec-its', '~> 1.0'
   s.add_development_dependency 'shoulda-matchers', '~> 2.7'
   s.add_development_dependency 'sass-rails', '~> 5.0.0.beta1'
