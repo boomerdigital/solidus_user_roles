@@ -26,7 +26,7 @@
             <li>
               <label>
                 <%= check_box_tag 'role[permission_set_ids][]', permission.id, f.object.try(:permission_sets).include?(permission) %>
-                <strong><%= t("spree.admin.permissions.#{permission.name.snakecase}") %></strong>
+                <strong><%= t("spree.admin.permissions.#{permission.name.underscore}") %></strong>
               </label>
             </li>
           <% end %>
@@ -39,7 +39,7 @@
             <li>
               <label>
                 <%= check_box_tag 'role[permission_set_ids][]', permission.id, f.object.try(:permission_sets).include?(permission) %>
-                <strong><%= t("spree.admin.permissions.#{permission.name.snakecase}") %></strong>
+                <strong><%= t("spree.admin.permissions.#{permission.name.underscore}") %></strong>
               </label>
             </li>
           <% end %>
