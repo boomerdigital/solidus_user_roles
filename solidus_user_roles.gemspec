@@ -22,5 +22,4 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency 'solidus_dev_support'
   s.add_development_dependency 'shoulda-matchers'
-  s.add_development_dependency 'rspec-its', '~> 1.0'
 end
