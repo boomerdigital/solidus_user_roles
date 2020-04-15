@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.required_ruby_version = '>= 2.1.0'
 
   s.author    = 'Allison Reilly'
-  s.email     = 'allie.reilly@boomer.digital'
+  s.email     = 'acreilly3@gmail.com'
   s.homepage  = 'http://boomer.digital'
 
   #s.files       = `git ls-files`.split("\n")
@@ -17,15 +17,10 @@ Gem::Specification.new do |s|
   s.requirements << 'none'
 
   s.add_dependency "solidus_core", [">= 1.0.0", "< 3"]
-  s.add_dependency 'solidus_support'
+  s.add_dependency 'solidus_support', '~> 0.4.0'
 
-  s.add_development_dependency 'database_cleaner'
-  s.add_development_dependency 'rspec-rails',  '~> 3.1'
+
+  s.add_development_dependency 'solidus_dev_support'
+  s.add_development_dependency 'shoulda-matchers'
   s.add_development_dependency 'rspec-its', '~> 1.0'
-  s.add_development_dependency 'shoulda-matchers', '~> 2.7'
-  s.add_development_dependency 'sass-rails', '~> 5.0.0.beta1'
-  s.add_development_dependency 'ffaker'
-  s.add_development_dependency 'selenium-webdriver'
-  s.add_development_dependency 'simplecov'
-  s.add_development_dependency 'sqlite3'
 end
