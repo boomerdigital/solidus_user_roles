@@ -1,7 +1,8 @@
 SolidusUserRoles
 =====================
 
-[![Build Status](https://api.travis-ci.org/boomerdigital/solidus_user_roles.svg?branch=master)](https://travis-ci.org/boomerdigital/solidus_user_roles)
+[![CircleCI](https://circleci.com/gh/boomerdigital/solidus_user_roles.svg?style=svg)](https://circleci.com/gh/boomerdigital/solidus_user_roles)
+
 
 SolidusUserRoles gives an admin the ability to create custom roles for their employees to restrict or allow access to certain sections in the admin panel.
 
