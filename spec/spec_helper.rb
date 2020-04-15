@@ -10,15 +10,10 @@ require File.expand_path('dummy/config/environment.rb', __dir__)
 
 # Requires factories and other useful helpers defined in spree_core.
 require 'solidus_dev_support/rspec/feature_helper'
-require 'rspec/its'
-require 'shoulda/matchers'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[File.join(File.dirname(__FILE__), 'support/**/*.rb')].each { |f| require f }
-
-# Requires factories defined in lib/solidus_user_roles/factories.rb
-require 'solidus_user_roles/factories'
 
 RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
