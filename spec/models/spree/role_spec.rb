@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 describe Spree::Role, type: :model do
-  it { is_expected.to have_many :role_permissions }
-  it { is_expected.to have_many(:permission_sets).through(:role_permissions) }
-  it { is_expected.to validate_uniqueness_of :name }
+  it { should have_many :role_permissions }
+  it { should have_many(:permission_sets).through(:role_permissions) }
+  it { should validate_uniqueness_of :name }
   let(:role) {
     role = build(:role)
     role.permission_sets << create(:permission_set)
