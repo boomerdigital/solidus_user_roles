@@ -10,7 +10,7 @@ module SolidusUserRoles
     end
 
     def self.load_custom_permissions
-      if ActiveRecord::Base.connection.tables.include?('spree_roles')
+      if (ActiveRecord::Base.connection.tables & ['spree_roles','spree_permission_sets']).to_a.length == 2 # makes sure both table exist
         ::Spree::Role.non_base_roles.each do |role|
           if SolidusSupport.solidus_gem_version < Gem::Version.new('2.5.x')
             ::Spree::RoleConfiguration.configure do |config|
@@ -23,6 +23,8 @@ module SolidusUserRoles
       end
     rescue ActiveRecord::NoDatabaseError
       warn "No database available, skipping role configuration"
+    rescue ActiveRecord::StatementInvalid => e
+      warn "Skipping role configuration: #{e.message}"
     end
 
 
