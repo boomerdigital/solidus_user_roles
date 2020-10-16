@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'solidus_user_roles'
-  s.version     = '1.2.1'
+  s.version     = '1.2.2'
   s.summary     = 'Advanced user roles for Solidus.'
   s.description = 'Advanced user roles for Solidus.'
   s.required_ruby_version = '>= 2.1.0'
