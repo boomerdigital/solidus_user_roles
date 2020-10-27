@@ -12,7 +12,7 @@ Installation
 Add solidus_user_roles to your Gemfile:
 
 ```ruby
-gem 'solidus_user_roles'
+gem 'solidus_user_roles', github: 'boomerdigital/solidus_user_roles'
 ```
 
 Bundle your dependencies and run the installation generator:
