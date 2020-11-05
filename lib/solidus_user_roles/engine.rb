@@ -1,9 +1,10 @@
 module SolidusUserRoles
   class Engine < Rails::Engine
-    include SolidusSupport::EngineExtensions::Decorators
+    include SolidusSupport::EngineExtensions
+
+    isolate_namespace SolidusUserRoles
 
     engine_name 'solidus_user_roles'
-    config.autoload_paths += %W(#{config.root}/lib)
 
     config.generators do |g|
       g.test_framework :rspec
