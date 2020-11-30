@@ -12,7 +12,7 @@ describe Spree::Role, type: :model do
 
   context "#assign_permissions" do
     it 'creates new Spree::RoleConfiguration::Role' do
-      if SolidusSupport.solidus_gem_version < Gem::Version.new('2.5.x')
+      if Spree.solidus_gem_version < Gem::Version.new('2.5.x')
         expect { role.save }.to change { Spree::RoleConfiguration.instance.roles.count }.by(1)
       else
         expect { role.save }.to change { Spree::Config.roles.roles.count }.by(1)
@@ -22,7 +22,7 @@ describe Spree::Role, type: :model do
       role.save
       role.permission_sets << create(:permission_set, name: 'test', set: 'Spree::PermissionSets::ProductDisplay')
 
-      if SolidusSupport.solidus_gem_version < Gem::Version.new('2.5.x')
+      if Spree.solidus_gem_version < Gem::Version.new('2.5.x')
         expect { role.save }.to change { Spree::RoleConfiguration.instance.roles[role.name].permission_sets.count }.from(1).to(2)
       else
         expect { role.save }.to change { Spree::Config.roles.roles[role.name].permission_sets.count }.from(1).to(2)
