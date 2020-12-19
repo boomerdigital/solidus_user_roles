@@ -24,8 +24,10 @@
         <ul>
           <% Spree::PermissionSet.display_permissions.each do |permission| %>
             <li>
-              <%= check_box_tag 'role[permission_set_ids][]', permission.id, f.object.try(:permission_sets).include?(permission) %>
-              <strong><%= permission.name %></strong>
+              <label>
+                <%= check_box_tag 'role[permission_set_ids][]', permission.id, f.object.try(:permission_sets).include?(permission) %>
+                <strong><%= t("spree.admin.permissions.#{permission.name.underscore}") %></strong>
+              </label>
             </li>
           <% end %>
         </ul>
@@ -35,8 +37,10 @@
         <ul>
           <% Spree::PermissionSet.management_permissions.each do |permission| %>
             <li>
-              <%= check_box_tag 'role[permission_set_ids][]', permission.id, f.object.try(:permission_sets).include?(permission) %>
-              <strong><%= permission.name %></strong>
+              <label>
+                <%= check_box_tag 'role[permission_set_ids][]', permission.id, f.object.try(:permission_sets).include?(permission) %>
+                <strong><%= t("spree.admin.permissions.#{permission.name.underscore}") %></strong>
+              </label>
             </li>
           <% end %>
         </ul>

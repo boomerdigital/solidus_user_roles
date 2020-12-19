@@ -14,3 +14,20 @@ en:
     admin:
       tab:
         roles: Roles
+      permissions:
+        configuration_display: Configuration Display
+        configuration_management: Configuration Management
+        dashboard_display: Dashboard Display
+        order_display: Order Display
+        order_management: Order Management
+        product_display: Product Display
+        product_management: Product Management
+        promotion_display: Promotion Display
+        promotion_management: Promotion Management
+        report_display: Report Display
+        restricted_stock_display: Restricted Stock Display
+        restricted_stock_management: Restricted Stock Management
+        stock_display: Stock Display
+        stock_management: Stock Management
+        user_display: User Display
+        user_management: User Management

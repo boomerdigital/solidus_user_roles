@@ -28,7 +28,7 @@
       <% @roles.non_base_roles.each do |role|%>
       <tr id="<%= spree_dom_id role %>" data-hook="rate_row" class="<%= cycle('odd', 'even')%>">
         <td class="align-center"><%=role.try(:name) || Spree.t(:not_available) %></td>
-        <td class="align-center"><%= role.permission_sets.map(&:name).to_sentence %></td>
+        <td class="align-center"><%= role.permission_sets.map(&:name).collect { |p| t("spree.admin.permissions.#{p.underscore}") }.to_sentence %></td>
         <td class="actions">
           <% if can?(:update, role) %>
             <%= link_to_edit role, :no_text => true %>
