@@ -15,12 +15,12 @@
 
       <div class="alpha sixteen columns">
         <div data-hook="name" class="field">
-          <%= f.label :name, Spree.t(:name) %>
+          <%= f.label :name, I18n.t("spree.name") %>
           <%= f.text_field :name, :class => 'fullwidth' %>
         </div>
       </div>
       <div class="alpha eight columns">
-        <%= label_tag nil, Spree.t(:display_permissions) %>
+        <%= label_tag nil, I18n.t("spree.display_permissions") %>
         <ul>
           <% Spree::PermissionSet.display_permissions.each do |permission| %>
             <li>
@@ -31,7 +31,7 @@
         </ul>
       </div>
       <div class="omega eight columns">
-        <%= label_tag nil, Spree.t(:management_permissions) %>
+        <%= label_tag nil, I18n.t("spree.management_permissions") %>
         <ul>
           <% Spree::PermissionSet.management_permissions.each do |permission| %>
             <li>
