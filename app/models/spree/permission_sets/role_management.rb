@@ -1,9 +1,22 @@
+# frozen_string_literal: true
+
 # A Role Manager has all the access of a UserManager and the ability to manage Roles
 module Spree
   module PermissionSets
     class RoleManagement < PermissionSets::Base
       def activate!
-        can [:admin, :display, :create, :update, :save_in_address_book, :remove_from_address_book, :addresses, :orders, :items], Spree.user_class
+        can [
+          :admin,
+          :display,
+          :create,
+          :update,
+          :save_in_address_book,
+          :remove_from_address_book,
+          :addresses,
+          :orders,
+          :items
+        ],
+          Spree.user_class
 
         # due to how cancancan filters by associations,
         # we have to define this twice, once for `accessible_by`

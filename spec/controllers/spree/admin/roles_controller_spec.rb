@@ -24,35 +24,35 @@ describe Spree::Admin::RolesController do
   end
 
   describe "#create" do
+    subject(:request) { post :create, params: params }
+
     let(:params) do
       {
         role: {
-          name: "TEST #{rand(10000)}",
+          name: "TEST #{rand(10_000)}",
           permission_set_ids: [permission_set.id]
         }
       }
     end
 
-    subject { post :create, params: params }
     it { is_expected.to redirect_to(spree.admin_roles_path) }
 
     it "expect @role to eq the role being updated" do
-      expect(assigns(:role)).to eq(@role)
+      expect(assigns(:role)).to eq(@role) # rubocop:disable RSpec/InstanceVariable
     end
 
-    it "should update the permission sets" do
-      expect{subject}.to change { Spree::Role.count }.by(1)
+    it "updates the permission sets" do
+      expect{ request }.to change(Spree::Role, :count).by(1)
     end
-    it "should update the RoleConfiguration" do
-      if Spree.solidus_gem_version < Gem::Version.new('2.5.x')
-        expect{subject}.to change {Spree::RoleConfiguration.instance.roles.count}.by(1)
-      else
-        expect{subject}.to change {Spree::Config.roles.roles.count}.by(1)
-      end
+
+    it "updates the RoleConfiguration" do
+      expect{ request }.to change { Spree::Config.roles.roles.count }.by(1)
     end
   end
 
   describe "#update" do
+    subject(:request) { put :update, params: params }
+
     let(:params) do
       {
         id: role.to_param,
@@ -63,20 +63,20 @@ describe Spree::Admin::RolesController do
       }
     end
 
-    subject { put :update, params: params }
     it { is_expected.to redirect_to(spree.admin_roles_path) }
 
     it "expect @role to eq the role being updated" do
-      expect(assigns(:role)).to eq(@role)
+      expect(assigns(:role)).to eq(@role) # rubocop:disable RSpec/InstanceVariable
     end
 
-    it "should update the permission sets" do
-      expect{subject}.to change { role.reload.permission_sets.count }.by(1)
+    it "updates the permission sets" do
+      expect{ request }.to change { role.reload.permission_sets.count }.by(1)
     end
   end
 
   describe "#destroy" do
-    subject { put :destroy, params: { :id => role.to_param } }
-    it { is_expected.to have_http_status(302) }
+    subject { put :destroy, params: { id: role.to_param } }
+
+    it { is_expected.to have_http_status(:found) }
   end
 end
