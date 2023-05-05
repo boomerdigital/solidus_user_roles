@@ -9,7 +9,7 @@ describe Spree::Role, type: :model do
 
   it { is_expected.to have_many :role_permissions }
   it { is_expected.to have_many(:permission_sets).through(:role_permissions) }
-  it { is_expected.to validate_uniqueness_of :name }
+  it { is_expected.to validate_uniqueness_of(:name).ignoring_case_sensitivity }
 
   describe "#assign_permissions" do
     it 'creates new Spree::RoleConfiguration::Role' do
