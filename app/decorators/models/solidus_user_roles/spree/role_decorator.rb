@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-
 module SolidusUserRoles
   module Spree
     module RoleDecorator
