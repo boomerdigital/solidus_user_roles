@@ -1,11 +1,11 @@
 <% content_for :page_title do %>
-  <%= Spree.t(:user_roles) %>
+  <%= I18n.t("spree.user_roles") %>
 <% end %>
 
 <% content_for :page_actions do %>
   <% if can?(:admin, Spree::Role) && can?(:create, Spree::Role) %>
     <li>
-      <%= button_link_to Spree.t(:new_user_role), new_admin_role_url, :icon => 'plus', :id => 'admin_new_role_link' %>
+      <%= button_link_to I18n.t("spree.new_user_role"), new_admin_role_url, :icon => 'plus', :id => 'admin_new_role_link' %>
     </li>
   <% end %>
 <% end %>
@@ -19,15 +19,15 @@
     </colgroup>
     <thead>
       <tr data-hook="role_header">
-        <th><%= Spree.t(:name) %></th>
-        <th><%= Spree.t(:permissions) %></th>
+        <th><%= I18n.t("spree.name") %></th>
+        <th><%= I18n.t("spree.permissions") %></th>
         <th class="actions"></th>
       </tr>
     </thead>
     <tbody>
       <% @roles.non_base_roles.each do |role|%>
       <tr id="<%= spree_dom_id role %>" data-hook="rate_row" class="<%= cycle('odd', 'even')%>">
-        <td class="align-center"><%=role.try(:name) || Spree.t(:not_available) %></td>
+        <td class="align-center"><%=role.try(:name) || I18n.t("spree.not_available") %></td>
         <td class="align-center"><%= role.permission_sets.map(&:name).to_sentence %></td>
         <td class="actions">
           <% if can?(:update, role) %>
@@ -43,9 +43,9 @@
   </table>
 <% else %>
   <div class="alpha twelve columns no-objects-found">
-    <%= Spree.t(:no_resource_found, resource: I18n.t(:other, scope: 'activerecord.models.spree/role')) %>
+    <%= I18n.t("spree.no_resource_found", resource: I18n.t(:other, scope: 'activerecord.models.spree/role')) %>
     <% if can?(:create, Spree::TaxRate) %>
-      <%= link_to Spree.t(:add_one), spree.new_admin_role_path %>!
+      <%= link_to I18n.t("spree.add_one"), spree.new_admin_role_path %>!
     <% end %>
   </div>
 <% end %>
