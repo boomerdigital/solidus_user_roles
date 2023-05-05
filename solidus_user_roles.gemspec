@@ -1,25 +1,37 @@
-# encoding: UTF-8
-Gem::Specification.new do |s|
-  s.platform    = Gem::Platform::RUBY
-  s.name        = 'solidus_user_roles'
-  s.version     = '1.2.2'
-  s.summary     = 'Advanced user roles for Solidus.'
-  s.description = 'Advanced user roles for Solidus.'
-  s.required_ruby_version = '>= 2.1.0'
+# frozen_string_literal: true
 
-  s.author    = 'Allison Reilly'
-  s.email     = 'acreilly3@gmail.com'
-  s.homepage  = 'http://boomer.digital'
+require_relative 'lib/solidus_user_roles/version'
 
-  #s.files       = `git ls-files`.split("\n")
-  #s.test_files  = `git ls-files -- {test,spec,features}/*`.split("\n")
-  s.require_path = 'lib'
-  s.requirements << 'none'
+Gem::Specification.new do |spec|
+  spec.name = 'solidus_user_roles'
+  spec.version = SolidusUserRoles::VERSION
+  spec.authors = ['Allison Reilly']
+  spec.email = 'acreilly3@gmail.com'
 
-  s.add_dependency "solidus_core", [">= 1.0.0", "< 3"]
-  s.add_dependency 'solidus_support', '~> 0.5'
+  spec.summary = 'Advanced user roles for Solidus.'
+  spec.description = 'Advanced user roles for Solidus.'
+  spec.homepage = 'http://boomer.digital'
+  spec.license = 'BSD-3-Clause'
 
+  spec.metadata['homepage_uri'] = spec.homepage
+  spec.metadata['source_code_uri'] = 'https://github.com/cpfergus1/solidus_user_roles'
+  spec.metadata['changelog_uri'] = 'https://github.com/cpfergus1/solidus_user_roles/blob/master/CHANGELOG.md'
 
-  s.add_development_dependency 'solidus_dev_support'
-  s.add_development_dependency 'shoulda-matchers'
+  spec.required_ruby_version = Gem::Requirement.new('>= 2.5', '< 4')
+
+  # Specify which files should be added to the gem when it is released.
+  # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
+  files = Dir.chdir(__dir__) { `git ls-files -z`.split("\x0") }
+
+  spec.files = files.grep_v(%r{^(test|spec|features)/})
+  spec.test_files = files.grep(%r{^(test|spec|features)/})
+  spec.bindir = "exe"
+  spec.executables = files.grep(%r{^exe/}) { |f| File.basename(f) }
+  spec.require_paths = ["lib"]
+
+  spec.add_dependency 'solidus_core', ['>= 2.0.0', '< 4']
+  spec.add_dependency 'solidus_support', '~> 0.5'
+
+  spec.add_development_dependency 'solidus_dev_support', '~> 2.6'
+  spec.add_development_dependency 'shoulda-matchers'
 end
