@@ -10,8 +10,7 @@
   <% end %>
 <% end %>
 
-
-<% if @roles.any? %>
+<% if @roles.non_base_roles.any? %>
   <table class="index">
     <colgroup>
       <col style="width: 50%">
@@ -42,10 +41,14 @@
     </tbody>
   </table>
 <% else %>
-  <div class="alpha twelve columns no-objects-found">
-    <%= I18n.t("spree.no_resource_found", resource: I18n.t(:other, scope: 'activerecord.models.spree/role')) %>
-    <% if can?(:create, Spree::TaxRate) %>
-      <%= link_to I18n.t("spree.add_one"), spree.new_admin_role_path %>!
-    <% end %>
+  <div class="content row">
+    <div class="content col-12">
+      <div class= "no-objects-found">
+        <%= I18n.t("spree.no_resource_found", resource: I18n.t(:other, scope: 'activerecord.models.spree/role')) %>
+        <% if can?(:admin, Spree::Role) && can?(:create, Spree::Role) %>
+          <%= link_to I18n.t("spree.add_one"), spree.new_admin_role_path %>!
+        <% end %>
+      </div>
+    </div>
   </div>
 <% end %>
