@@ -1,49 +1,38 @@
-<style>
-  .admin_roles ul {
-    list-style: none;
-  }
-  .admin_roles li {
-    margin: 5px 0;
-  }
-  .admin_roles strong {
-    margin-left: 5px;
-  }
-</style>
 <div data-hook="admin_role_form_fields">
-  <div class="alpha sixteen columns">
-    <fieldset data-hook="roles" class="admin_roles no-border-bottom">
-
-      <div class="alpha sixteen columns">
-        <div data-hook="name" class="field">
-          <%= f.label :name, I18n.t("spree.name") %>
-          <%= f.text_field :name, :class => 'fullwidth' %>
-        </div>
-      </div>
-      <div class="alpha eight columns">
-        <%= label_tag nil, I18n.t("spree.display_permissions") %>
-        <ul>
-          <% Spree::PermissionSet.display_permissions.each do |permission| %>
-            <li>
-              <%= check_box_tag 'role[permission_set_ids][]', permission.id, f.object.try(:permission_sets).include?(permission) %>
-              <strong><%= permission.name %></strong>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-      <div class="omega eight columns">
-        <%= label_tag nil, I18n.t("spree.management_permissions") %>
-        <ul>
-          <% Spree::PermissionSet.management_permissions.each do |permission| %>
-            <li>
-              <%= check_box_tag 'role[permission_set_ids][]', permission.id, f.object.try(:permission_sets).include?(permission) %>
-              <strong><%= permission.name %></strong>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-    </fieldset>
+  <div class="row">
+    <div class="col-4">
+      <%= f.field_container :name do %>
+        <%= f.label :name, class: 'required' %>
+        <%= f.text_field :name, class: 'fullwidth title' %>
+        <%= f.error_message_on :name %>
+      <% end %>
+    </div>
   </div>
 
+  <div class="row">
+    <div class="left col-6">
+      <%= f.label nil, I18n.t("spree.display_permissions") %>
+      <ul style="list-style-type: none; padding: 0; margin: 0;">
+        <% Spree::PermissionSet.display_permissions.each do |permission| %>
+          <li>  
+            <%= f.check_box 'permission_set_ids', {checked: f.object.try(:permission_sets).include?(permission), multiple: true}, permission.id, nil %>
+            <strong><%= permission.name %></strong>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="right col-6">
+      <%= f.label nil, I18n.t("spree.display_permissions") %>
+        <ul style="list-style-type: none; padding: 0; margin: 0;">
+          <% Spree::PermissionSet.management_permissions.each do |permission| %>
+            <li>
+              <%= f.check_box 'permission_set_ids', {checked: f.object.try(:permission_sets).include?(permission), multiple: true}, permission.id, nil %>
+              <strong><%= permission.name %></strong>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
   <div class="clear"></div>
-
 </div>
