@@ -10,19 +10,27 @@
 Add solidus_user_roles to your Gemfile:
 
 ```ruby
-gem 'solidus_user_roles'
+gem 'solidus_user_roles', github: 'boomerdigital/solidus_user_roles'
 ```
 
 Bundle your dependencies and run the installation generator:
 
 ```shell
-bin/rails generate solidus_user_roles:install
+bundle
+bundle exec rails g solidus_user_roles:install
 ```
 
-## Usage
+Remember to seed or run:
+```shell
+rake solidus_user_roles:load_seeds
+```
 
-<!-- Explain how to use your extension once it's been installed. -->
-
+Admin Panel
+-----------
+An admin is the only user who has the ability to add or remove roles from other users.
+![image](https://github.com/cpfergus1/solidus_user_roles/assets/68167430/8109fe7e-d098-42c8-a03a-ad1bec273b8c)
+![image](https://github.com/cpfergus1/solidus_user_roles/assets/68167430/311d8e38-e801-401d-9fe8-f232435001ad)
+![image](https://github.com/cpfergus1/solidus_user_roles/assets/68167430/6f248635-054c-4adc-9fdf-85108acd06c8)
 ## Development
 
 ### Testing the extension
@@ -68,6 +76,8 @@ Use Ctrl-C to stop
 
 Please refer to the [dedicated page](https://github.com/solidusio/solidus/wiki/How-to-release-extensions) in the Solidus wiki.
 
+
 ## License
+Fork of https://github.com/boomerdigital/solidus_user_roles
 
 Copyright (c) 2023 Allison Reilly, released under the New BSD License.
