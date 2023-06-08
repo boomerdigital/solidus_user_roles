@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :permission_set, class: Spree::PermissionSet do
     name { 'ProductManagement' }

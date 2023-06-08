@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :solidus_user_roles do
   desc "Loads seed data."
   task load_seeds: :environment do

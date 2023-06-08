@@ -1,0 +1,5 @@
+bump:
+  recurse: false
+  file: 'lib/solidus_user_roles/version.rb'
+  message: Bump SolidusUserRoles to %{version}
+  tag: true
